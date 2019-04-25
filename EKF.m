@@ -179,8 +179,12 @@ end
 
 time2 = toc;
 Z_k1k1=zeros(nm,N+1);
+dump=XX_k1k1(4,:);
+XX_k1k1(4,:)=0;
 %% Estimate Output parameters
 for i=2:N+1
    Z_k1k1(1:3,i)=kf_calc_h(0, XX_k1k1(:,i-1), zeros(4,1));
 end
+XX_k1k1(4,:)=dump;
 errrr=Z_k-Z_k1k1;
+
